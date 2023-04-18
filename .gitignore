@@ -1,0 +1,6 @@
+*.idea/
+.vscode/
+*venv/
+*рус
+__pycache__/
+db.*
