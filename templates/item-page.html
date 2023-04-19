@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Start page</title>
-
+    <title>Document</title>
 </head>
 <body>
     <header>
         <a href="/">Home</a> / <a href="/items">Items</a> / <a href="/about">About</a> /
     </header>
-    <h1>Приветствую!</h1>
-    
-    Меня зовут: <i>{{ name }}.</i> <br>
-    Мой email для связи: {{ email }}.
-
-   
+    <h2>Item: {{ item.name }} </h2>
+    {% if item.quantity %}
+    <div>Item: {{ item.quantaty }} </div>
+    {% endif %}
+    <a href="/items">Назад</a>
 </body>
 </html>
+

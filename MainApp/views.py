@@ -37,21 +37,25 @@ def about(request):
        Фамилия: <b>{author["surname"]}</b><br>
        телефон: <b>{author["phone"]}</b><br>
        email: <b>{author["email"]}</b><br>
+       <a href='/'> Home </a>
        """
+
     return HttpResponse(result)
 
 
 def get_item(request, id):
     for item in items:
         if item['id'] == id:
-            result = f"""
-            <h1>Имя: {item["name"]} </h1>
-            <p>Количество: {item['quantity']} </p>
-            <a href='/items'> Назад </a>
-"""
-            return HttpResponse(result)
-        
-    return HttpResponseNotFound(f'Item with id = {id} not found')
+#             result = f"""
+#             <h1>Имя: {item["name"]} </h1>
+#             <p>Количество: {item['quantity']} </p>
+#             <a href='/items'> Назад </a>
+# """
+#             return HttpResponse(result)
+          context = {
+              'item': item
+    }
+    return render(request, "item-page.html", context)
 
 
 def list_items(request):
